@@ -2,13 +2,13 @@
 
 @extends('backend.layouts.app')
 
-@section('title', __('Create User'))
+@section('title', __('Tạo mới'))
 
 @section('content')
     <x-forms.post :action="route('admin.auth.user.store')">
         <x-backend.card>
             <x-slot name="header">
-                @lang('Create User')
+                @lang('Tạo mới')
             </x-slot>
 
             <x-slot name="headerActions">

@@ -34,7 +34,7 @@ Route::group([
                 ->name('create')
                 ->breadcrumbs(function (Trail $trail) {
                     $trail->parent('admin.auth.user.index')
-                        ->push(__('Create User'), route('admin.auth.user.create'));
+                        ->push(__('Tạo mới'), route('admin.auth.user.create'));
                 });
 
             Route::post('/', [UserController::class, 'store'])->name('store');
@@ -73,7 +73,7 @@ Route::group([
                 ->middleware('permission:admin.access.user.list|admin.access.user.deactivate|admin.access.user.clear-session|admin.access.user.impersonate|admin.access.user.change-password')
                 ->breadcrumbs(function (Trail $trail) {
                     $trail->parent('admin.dashboard')
-                        ->push(__('User Management'), route('admin.auth.user.index'));
+                        ->push(__('Quản lý tài khoản'), route('admin.auth.user.index'));
                 });
 
             Route::group(['prefix' => '{user}'], function () {

@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('User Management'))
+@section('title', __('Quản lý tài khoản'))
 
 @section('breadcrumb-links')
     @include('backend.auth.user.includes.breadcrumb-links')
@@ -9,7 +9,7 @@
 @section('content')
     <x-backend.card>
         <x-slot name="header">
-            @lang('User Management')
+            @lang('Quản lý tài khoản')
         </x-slot>
 
         @if ($logged_in_user->hasAllAccess())
@@ -18,7 +18,7 @@
                     icon="c-icon cil-plus"
                     class="card-header-action"
                     :href="route('admin.auth.user.create')"
-                    :text="__('Create User')"
+                    :text="__('Tạo mới')"
                 />
             </x-slot>
         @endif

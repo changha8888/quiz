@@ -36,7 +36,7 @@
                     href="#"
                     icon="c-sidebar-nav-icon cil-user"
                     class="c-sidebar-nav-dropdown-toggle"
-                    :text="__('Access')" />
+                    :text="__('Người dùng')" />
 
                 <ul class="c-sidebar-nav-dropdown-items">
                     @if (
@@ -54,7 +54,7 @@
                             <x-utils.link
                                 :href="route('admin.auth.user.index')"
                                 class="c-sidebar-nav-link"
-                                :text="__('User Management')"
+                                :text="__('Quản lý người dùng')"
                                 :active="activeClass(Route::is('admin.auth.user.*'), 'c-active')" />
                         </li>
                     @endif
@@ -64,7 +64,7 @@
                             <x-utils.link
                                 :href="route('admin.auth.role.index')"
                                 class="c-sidebar-nav-link"
-                                :text="__('Role Management')"
+                                :text="__('Quản lý nhóm quyền')"
                                 :active="activeClass(Route::is('admin.auth.role.*'), 'c-active')" />
                         </li>
                     @endif

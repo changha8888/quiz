@@ -79,14 +79,14 @@ class UsersTable extends DataTableComponent
             'active' => Filter::make('Active')
                 ->select([
                     '' => 'Any',
-                    'yes' => 'Yes',
-                    'no' => 'No',
+                    'yes' => 'Yesss',
+                    'no' => 'Noss',
                 ]),
             'verified' => Filter::make('E-mail Verified')
                 ->select([
                     '' => 'Any',
-                    'yes' => 'Yes',
-                    'no' => 'No',
+                    'yes' => 'Yesssss',
+                    'no' => 'Nosssss',
                 ]),
         ];
     }
@@ -97,19 +97,15 @@ class UsersTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make(__('Type'))
+            Column::make(__('Loại tài khoản'))
                 ->sortable(),
-            Column::make(__('Name'))
+            Column::make(__('Tên'))
                 ->sortable(),
             Column::make(__('E-mail'), 'email')
                 ->sortable(),
-            Column::make(__('Verified'), 'email_verified_at')
+            Column::make(__('Kích hoạt'), 'email_verified_at')
                 ->sortable(),
-            Column::make(__('2FA'), 'two_factor_auth_count')
-                ->sortable(),
-            Column::make(__('Roles')),
-            Column::make(__('Additional Permissions')),
-            Column::make(__('Actions')),
+            Column::make(__('Hành động')),
         ];
     }
 

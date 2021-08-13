@@ -17,9 +17,10 @@ class RolesTable extends DataTableComponent
      */
     public function query(): Builder
     {
-        return Role::with('permissions:id,name,description')
+        $data =  Role::with('permissions:id,name,description')
             ->withCount('users')
             ->when($this->getFilter('search'), fn ($query, $term) => $query->search($term));
+            return $data;
     }
 
     public function columns(): array
@@ -38,6 +39,7 @@ class RolesTable extends DataTableComponent
 
     public function rowView(): string
     {
+        
         return 'backend.auth.role.includes.row';
     }
 }
