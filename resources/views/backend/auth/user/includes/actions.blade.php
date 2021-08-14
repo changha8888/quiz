@@ -73,26 +73,19 @@
                 <x-utils.link
                     :href="route('admin.auth.user.change-password', $user)"
                     class="dropdown-item"
-                    :text="__('Change Password')"
+                    :text="__('Đổi mật khẩu')"
                     permission="admin.access.user.change-password" />
 
                 @if ($user->id !== $logged_in_user->id && !$user->isMasterAdmin())
-                    <x-utils.form-button
-                        :action="route('admin.auth.user.clear-session', $user)"
-                        name="confirm-item"
-                        button-class="dropdown-item"
-                        permission="admin.access.user.clear-session"
-                    >
-                        @lang('Clear Session')
-                    </x-utils.form-button>
+                   
 
-                    @canBeImpersonated($user)
+                    {{-- @canBeImpersonated($user)
                         <x-utils.link
                             :href="route('impersonate', $user->id)"
                             class="dropdown-item"
                             :text="__('Login As ' . $user->name)"
                             permission="admin.access.user.impersonate" />
-                    @endCanBeImpersonated
+                    @endCanBeImpersonated --}}
 
                     <x-utils.form-button
                         :action="route('admin.auth.user.mark', [$user, 0])"
@@ -101,7 +94,7 @@
                         button-class="dropdown-item"
                         permission="admin.access.user.deactivate"
                     >
-                        @lang('Deactivate')
+                        Hủy kích hoạt
                     </x-utils.form-button>
                 @endif
             </div>
