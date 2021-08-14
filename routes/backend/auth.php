@@ -55,6 +55,7 @@ Route::group([
                 Route::patch('restore', [DeletedUserController::class, 'update'])->name('restore');
                 Route::delete('permanently-delete', [DeletedUserController::class, 'destroy'])->name('permanently-delete');
             });
+            Route::get('export/', [UserController::class, 'export'])->name('download');
         });
 
         Route::group([
@@ -142,4 +143,5 @@ Route::group([
             Route::delete('/', [RoleController::class, 'destroy'])->name('destroy');
         });
     });
+    
 });

@@ -20,6 +20,12 @@
                     :href="route('admin.auth.user.create')"
                     :text="__('Tạo mới')"
                 />
+                <x-utils.link
+                    icon="bi bi-download"
+                    class="btn btn-info btn-sm"
+                    :href="route('admin.auth.user.download')"
+                    :text="__('Download')"
+                />
             </x-slot>
         @endif
 

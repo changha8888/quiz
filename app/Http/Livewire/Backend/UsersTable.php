@@ -97,14 +97,14 @@ class UsersTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make(__('Loại tài khoản'))
+            Column::make(__('Loại tài khoản'), 'type')
                 ->sortable(),
-            Column::make(__('Tên'))
+            Column::make(__('Tên'), 'name')
                 ->sortable(),
             Column::make(__('E-mail'), 'email')
                 ->sortable(),
-            Column::make(__('Kích hoạt'), 'email_verified_at')
-                ->sortable(),
+            // Column::make(__('Kích hoạt'), 'email_verified_at')
+            //     ->sortable(),
             Column::make(__('Hành động')),
         ];
     }

@@ -10,6 +10,8 @@ use App\Domains\Auth\Models\User;
 use App\Domains\Auth\Services\PermissionService;
 use App\Domains\Auth\Services\RoleService;
 use App\Domains\Auth\Services\UserService;
+use App\Domains\Auth\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 /**
  * Class UserController.
@@ -131,5 +133,10 @@ class UserController
         $this->userService->delete($user);
 
         return redirect()->route('admin.auth.user.deleted')->withFlashSuccess(__('The user was successfully deleted.'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
     }
 }
