@@ -27,7 +27,7 @@ Route::group([
                 ->name('deleted')
                 ->breadcrumbs(function (Trail $trail) {
                     $trail->parent('admin.auth.user.index')
-                        ->push(__('Deleted Users'), route('admin.auth.user.deleted'));
+                        ->push(__('Tài khoản đã xóa'), route('admin.auth.user.deleted'));
                 });
 
             Route::get('create', [UserController::class, 'create'])
@@ -66,7 +66,7 @@ Route::group([
                 ->middleware('permission:admin.access.user.reactivate')
                 ->breadcrumbs(function (Trail $trail) {
                     $trail->parent('admin.auth.user.index')
-                        ->push(__('Deactivated Users'), route('admin.auth.user.deactivated'));
+                        ->push(__('Tài khoản bị vô hiệu hóa'), route('admin.auth.user.deactivated'));
                 });
 
             Route::get('/', [UserController::class, 'index'])
@@ -100,7 +100,7 @@ Route::group([
                     ->middleware('permission:admin.access.user.change-password')
                     ->breadcrumbs(function (Trail $trail, User $user) {
                         $trail->parent('admin.auth.user.show', $user)
-                            ->push(__('Change Password'), route('admin.auth.user.change-password', $user));
+                            ->push(__('Đổi mật khẩu'), route('admin.auth.user.change-password', $user));
                     });
 
                 Route::patch('password/change', [UserPasswordController::class, 'update'])

@@ -102,7 +102,7 @@ class LoginController
         if (! $user->isActive()) {
             auth()->logout();
 
-            return redirect()->route('frontend.auth.login')->withFlashDanger(__('Your account has been deactivated.'));
+            return redirect()->route('frontend.auth.login')->withFlashDanger(__('Tài khoản của bạn đã bị vô hiệu hóa.'));
         }
 
         event(new UserLoggedIn($user));

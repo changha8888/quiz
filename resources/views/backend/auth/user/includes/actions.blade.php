@@ -29,7 +29,7 @@
             name="confirm-item"
             permission="admin.access.user.reactivate"
         >
-            @lang('Reactivate')
+            @lang('Kích hoạt lại')
         </x-utils.form-button>
     @endif
 
@@ -41,14 +41,14 @@
     @if ($user->isMasterAdmin() && $logged_in_user->isMasterAdmin())
         <div class="dropdown d-inline-block">
             <a class="btn btn-sm btn-secondary dropdown-toggle" id="moreMenuLink" href="#" role="button" data-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false">
-                @lang('More')
+                @lang('Thêm')
             </a>
 
             <div class="dropdown-menu" aria-labelledby="moreMenuLink">
                 <x-utils.link
                     :href="route('admin.auth.user.change-password', $user)"
                     class="dropdown-item"
-                    :text="__('Change Password')"
+                    :text="__('Đổi mật khẩu')"
                     permission="admin.access.user.change-password" />
             </div>
         </div>

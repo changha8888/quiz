@@ -1,12 +1,12 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Change Password for :name', ['name' => $user->name]))
+@section('title', __('Thay đổi mật khẩu cho :name', ['name' => $user->name]))
 
 @section('content')
     <x-forms.patch :action="route('admin.auth.user.change-password.update', $user)">
         <x-backend.card>
             <x-slot name="header">
-                @lang('Change Password for :name', ['name' => $user->name])
+                @lang('Thay đổi mật khẩu cho :name', ['name' => $user->name])
             </x-slot>
 
             <x-slot name="headerActions">
@@ -15,7 +15,7 @@
 
             <x-slot name="body">
                 <div class="form-group row">
-                    <label for="password" class="col-md-2 col-form-label">@lang('Password')</label>
+                    <label for="password" class="col-md-2 col-form-label">@lang('Mật khẩu')</label>
 
                     <div class="col-md-10">
                         <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password') }}" maxlength="100" required autocomplete="new-password" />
@@ -23,7 +23,7 @@
                 </div><!--form-group-->
 
                 <div class="form-group row">
-                    <label for="password_confirmation" class="col-md-2 col-form-label">@lang('Password Confirmation')</label>
+                    <label for="password_confirmation" class="col-md-2 col-form-label">@lang('Xác nhận mật khẩu')</label>
 
                     <div class="col-md-10">
                         <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="{{ __('Password Confirmation') }}" maxlength="100" required autocomplete="new-password" />
@@ -32,7 +32,7 @@
             </x-slot>
 
             <x-slot name="footer">
-                <button class="btn btn-sm btn-primary float-right" type="submit">@lang('Update')</button>
+                <button class="btn btn-sm btn-primary float-right" type="submit">@lang('Sửa')</button>
             </x-slot>
         </x-backend.card>
     </x-forms.patch>

@@ -96,7 +96,7 @@ class RoleController
     {
         $this->roleService->update($role, $request->validated());
 
-        return redirect()->route('admin.auth.role.index')->withFlashSuccess(__('The role was successfully updated.'));
+        return redirect()->route('admin.auth.role.index')->withFlashSuccess(__('Quyền đã được cập nhật thành công. '));
     }
 
     /**
@@ -110,6 +110,6 @@ class RoleController
     {
         $this->roleService->destroy($role);
 
-        return redirect()->route('admin.auth.role.index')->withFlashSuccess(__('The role was successfully deleted.'));
+        return redirect()->route('admin.auth.role.index')->withFlashSuccess(__('Thêm mới quyền thành công. '));
     }
 }

@@ -2,24 +2,24 @@
 
 @extends('backend.layouts.app')
 
-@section('title', __('Update User'))
+@section('title', __('Cập nhật tài khoản'))
 
 @section('content')
     <x-forms.patch :action="route('admin.auth.user.update', $user)">
         <x-backend.card>
             <x-slot name="header">
-                @lang('Update User')
+                @lang('Cập nhật tài khoản')
             </x-slot>
 
             <x-slot name="headerActions">
-                <x-utils.link class="card-header-action" :href="route('admin.auth.user.index')" :text="__('Cancel')" />
+                <x-utils.link class="card-header-action" :href="route('admin.auth.user.index')" :text="__('Hủy bỏ')" />
             </x-slot>
 
             <x-slot name="body">
                 <div x-data="{userType : '{{ $user->type }}'}">
                     @if (!$user->isMasterAdmin())
                         <div class="form-group row">
-                            <label for="name" class="col-md-2 col-form-label">@lang('Type')</label>
+                            <label for="name" class="col-md-2 col-form-label">@lang('Loại tài khoản')</label>
 
                             <div class="col-md-10">
                                 <select name="type" class="form-control" required x-on:change="userType = $event.target.value">
@@ -31,7 +31,7 @@
                     @endif
 
                     <div class="form-group row">
-                        <label for="name" class="col-md-2 col-form-label">@lang('Name')</label>
+                        <label for="name" class="col-md-2 col-form-label">@lang('Tên ')</label>
 
                         <div class="col-md-10">
                             <input type="text" name="name" class="form-control" placeholder="{{ __('Name') }}" value="{{ old('name') ?? $user->name }}" maxlength="100" required />
@@ -39,10 +39,10 @@
                     </div><!--form-group-->
 
                     <div class="form-group row">
-                        <label for="email" class="col-md-2 col-form-label">@lang('E-mail Address')</label>
+                        <label for="email" class="col-md-2 col-form-label">@lang('Địa chỉ E-mail')</label>
 
                         <div class="col-md-10">
-                            <input type="email" name="email" id="email" class="form-control" placeholder="{{ __('E-mail Address') }}" value="{{ old('email') ?? $user->email }}" maxlength="255" required />
+                            <input type="email" name="email" id="email" class="form-control" placeholder="{{ __('Địa chỉ E-mail') }}" value="{{ old('email') ?? $user->email }}" maxlength="255" required />
                         </div>
                     </div><!--form-group-->
 
@@ -57,7 +57,7 @@
             </x-slot>
 
             <x-slot name="footer">
-                <button class="btn btn-sm btn-primary float-right" type="submit">@lang('Update User')</button>
+                <button class="btn btn-sm btn-primary float-right" type="submit">@lang('Sửa')</button>
             </x-slot>
         </x-backend.card>
     </x-forms.patch>

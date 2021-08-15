@@ -12,9 +12,6 @@
     {{ $row->name }}
 </x-livewire-tables::bs4.table.cell>
 
-<x-livewire-tables::bs4.table.cell>
-    {!! $row->permissions_label !!}
-</x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
     {{ $row->users_count }}
