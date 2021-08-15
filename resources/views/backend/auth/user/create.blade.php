@@ -12,13 +12,13 @@
             </x-slot>
 
             <x-slot name="headerActions">
-                <x-utils.link class="card-header-action" :href="route('admin.auth.user.index')" :text="__('Cancel')" />
+                <x-utils.link class="card-header-action" :href="route('admin.auth.user.index')" :text="__('Hủy bỏ')" />
             </x-slot>
 
             <x-slot name="body">
                 <div x-data="{userType : '{{ $model::TYPE_USER }}'}">
                     <div class="form-group row">
-                        <label for="name" class="col-md-2 col-form-label">@lang('Type')</label>
+                        <label for="name" class="col-md-2 col-form-label">@lang('Loại tài khoản')</label>
 
                         <div class="col-md-10">
                             <select name="type" class="form-control" required x-on:change="userType = $event.target.value">
@@ -29,23 +29,23 @@
                     </div><!--form-group-->
 
                     <div class="form-group row">
-                        <label for="name" class="col-md-2 col-form-label">@lang('Name')</label>
+                        <label for="name" class="col-md-2 col-form-label">@lang('Tên')</label>
 
                         <div class="col-md-10">
-                            <input type="text" name="name" class="form-control" placeholder="{{ __('Name') }}" value="{{ old('name') }}" maxlength="100" required />
+                            <input type="text" name="name" class="form-control" placeholder="{{ __('Tên') }}" value="{{ old('name') }}" maxlength="100" required />
                         </div>
                     </div><!--form-group-->
 
                     <div class="form-group row">
-                        <label for="email" class="col-md-2 col-form-label">@lang('E-mail Address')</label>
+                        <label for="email" class="col-md-2 col-form-label">@lang('E-mail')</label>
 
                         <div class="col-md-10">
-                            <input type="email" name="email" class="form-control" placeholder="{{ __('E-mail Address') }}" value="{{ old('email') }}" maxlength="255" required />
+                            <input type="email" name="email" class="form-control" placeholder="{{ __('Địa chỉ E-mail') }}" value="{{ old('email') }}" maxlength="255" required />
                         </div>
                     </div><!--form-group-->
 
                     <div class="form-group row">
-                        <label for="password" class="col-md-2 col-form-label">@lang('Password')</label>
+                        <label for="password" class="col-md-2 col-form-label">@lang('Mật khẩu')</label>
 
                         <div class="col-md-10">
                             <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password') }}" maxlength="100" required autocomplete="new-password" />
@@ -53,7 +53,7 @@
                     </div><!--form-group-->
 
                     <div class="form-group row">
-                        <label for="password_confirmation" class="col-md-2 col-form-label">@lang('Password Confirmation')</label>
+                        <label for="password_confirmation" class="col-md-2 col-form-label">@lang('Xác nhận mật khẩu')</label>
 
                         <div class="col-md-10">
                             <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="{{ __('Password Confirmation') }}" maxlength="100" required autocomplete="new-password" />
@@ -61,7 +61,7 @@
                     </div><!--form-group-->
 
                     <div class="form-group row">
-                        <label for="active" class="col-md-2 col-form-label">@lang('Active')</label>
+                        <label for="active" class="col-md-2 col-form-label">@lang('Kích hoạt')</label>
 
                         <div class="col-md-10">
                             <div class="form-check">
@@ -70,7 +70,7 @@
                         </div>
                     </div><!--form-group-->
 
-                    <div x-data="{ emailVerified : false }">
+                    {{-- <div x-data="{ emailVerified : false }">
                         <div class="form-group row">
                             <label for="email_verified" class="col-md-2 col-form-label">@lang('E-mail Verified')</label>
 
@@ -105,7 +105,7 @@
                                 </div>
                             </div><!--form-group-->
                         </div>
-                    </div>
+                    </div> --}}
 
                     @include('backend.auth.includes.roles')
 

@@ -1,11 +1,11 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Role Management'))
+@section('title', __('Quản lý nhóm quyền'))
 
 @section('content')
     <x-backend.card>
         <x-slot name="header">
-            @lang('Role Management')
+            @lang('Quản lý nhóm quyền')
         </x-slot>
 
         <x-slot name="headerActions">
@@ -13,7 +13,7 @@
                 icon="c-icon cil-plus"
                 class="card-header-action"
                 :href="route('admin.auth.role.create')"
-                :text="__('Create Role')"
+                :text="__('Tạo mới')"
             />
         </x-slot>
 

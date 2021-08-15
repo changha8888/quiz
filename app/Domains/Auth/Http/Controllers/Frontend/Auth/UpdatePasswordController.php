@@ -35,6 +35,6 @@ class UpdatePasswordController
     {
         $this->userService->updatePassword($request->user(), $request->validated());
 
-        return redirect()->route('frontend.user.account', ['#password'])->withFlashSuccess(__('Password successfully updated.'));
+        return redirect()->route('frontend.user.account', ['#password'])->withFlashSuccess(__('Mật khẫu đã được thay đổi thành công.'));
     }
 }

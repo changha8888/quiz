@@ -34,6 +34,6 @@ class PasswordExpiredController
         $userService->updatePassword($request->user(), $request->only('old_password', 'password'), true);
 
         return redirect()->route('frontend.user.account')
-            ->withFlashSuccess(__('Password successfully updated.'));
+            ->withFlashSuccess(__('Mật khẩu đã thay đổi thành công.'));
     }
 }

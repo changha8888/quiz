@@ -26,14 +26,13 @@ class RolesTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make(__('Type'))
+            Column::make(__('Loại tài khoản'), 'type')
                 ->sortable(),
-            Column::make(__('Name'))
+            Column::make(__('Tên'), 'name')
                 ->sortable(),
-            Column::make(__('Permissions')),
-            Column::make(__('Number of Users'), 'users_count')
+            Column::make(__('Số người dùng'), 'users_count')
                 ->sortable(),
-            Column::make(__('Actions')),
+            Column::make(__('Hành động')),
         ];
     }
 
