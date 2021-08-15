@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Deactivated Users'))
+@section('title', __('Tài khoản bị vô hiệu hóa'))
 
 @section('breadcrumb-links')
     @include('backend.auth.user.includes.breadcrumb-links')
@@ -9,7 +9,7 @@
 @section('content')
     <x-backend.card>
         <x-slot name="header">
-            @lang('Deactivated Users')
+            @lang('Tài khoản bị vô hiệu hóa')
         </x-slot>
 
         <x-slot name="body">

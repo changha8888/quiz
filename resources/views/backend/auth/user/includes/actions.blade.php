@@ -29,7 +29,7 @@
             name="confirm-item"
             permission="admin.access.user.reactivate"
         >
-            @lang('Reactivate')
+            @lang('Kích hoạt lại')
         </x-utils.form-button>
     @endif
 
