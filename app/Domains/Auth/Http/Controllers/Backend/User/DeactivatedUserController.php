@@ -50,6 +50,6 @@ class DeactivatedUserController
             (int) $status === 1 || ! $request->user()->can('admin.access.user.reactivate') ?
                 'admin.auth.user.index' :
                 'admin.auth.user.deactivated'
-        )->withFlashSuccess(__('The user was successfully updated.'));
+        )->withFlashSuccess(__('Tài khoản đã cập nhật thành công.'));
     }
 }

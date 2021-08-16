@@ -27,14 +27,14 @@ Route::group([
                 ->name('deleted')
                 ->breadcrumbs(function (Trail $trail) {
                     $trail->parent('admin.auth.user.index')
-                        ->push(__('Deleted Users'), route('admin.auth.user.deleted'));
+                        ->push(__('Tài khoản đã xóa'), route('admin.auth.user.deleted'));
                 });
 
             Route::get('create', [UserController::class, 'create'])
                 ->name('create')
                 ->breadcrumbs(function (Trail $trail) {
                     $trail->parent('admin.auth.user.index')
-                        ->push(__('Create User'), route('admin.auth.user.create'));
+                        ->push(__('Tạo mới'), route('admin.auth.user.create'));
                 });
 
             Route::post('/', [UserController::class, 'store'])->name('store');
@@ -55,6 +55,7 @@ Route::group([
                 Route::patch('restore', [DeletedUserController::class, 'update'])->name('restore');
                 Route::delete('permanently-delete', [DeletedUserController::class, 'destroy'])->name('permanently-delete');
             });
+            Route::get('export/', [UserController::class, 'export'])->name('download');
         });
 
         Route::group([
@@ -65,7 +66,7 @@ Route::group([
                 ->middleware('permission:admin.access.user.reactivate')
                 ->breadcrumbs(function (Trail $trail) {
                     $trail->parent('admin.auth.user.index')
-                        ->push(__('Deactivated Users'), route('admin.auth.user.deactivated'));
+                        ->push(__('Tài khoản bị vô hiệu hóa'), route('admin.auth.user.deactivated'));
                 });
 
             Route::get('/', [UserController::class, 'index'])
@@ -73,7 +74,7 @@ Route::group([
                 ->middleware('permission:admin.access.user.list|admin.access.user.deactivate|admin.access.user.clear-session|admin.access.user.impersonate|admin.access.user.change-password')
                 ->breadcrumbs(function (Trail $trail) {
                     $trail->parent('admin.dashboard')
-                        ->push(__('User Management'), route('admin.auth.user.index'));
+                        ->push(__('Quản lý tài khoản'), route('admin.auth.user.index'));
                 });
 
             Route::group(['prefix' => '{user}'], function () {
@@ -99,12 +100,13 @@ Route::group([
                     ->middleware('permission:admin.access.user.change-password')
                     ->breadcrumbs(function (Trail $trail, User $user) {
                         $trail->parent('admin.auth.user.show', $user)
-                            ->push(__('Change Password'), route('admin.auth.user.change-password', $user));
+                            ->push(__('Đổi mật khẩu'), route('admin.auth.user.change-password', $user));
                     });
 
                 Route::patch('password/change', [UserPasswordController::class, 'update'])
                     ->name('change-password.update')
                     ->middleware('permission:admin.access.user.change-password');
+                
             });
         });
     });
@@ -142,4 +144,5 @@ Route::group([
             Route::delete('/', [RoleController::class, 'destroy'])->name('destroy');
         });
     });
+    
 });

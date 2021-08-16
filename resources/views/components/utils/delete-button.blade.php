@@ -1,4 +1,4 @@
-@props(['href' => '#', 'text' => __('Delete'), 'permission' => false])
+@props(['href' => '#', 'text' => __('Xóa'), 'permission' => false])
 
 <x-utils.form-button
     :action="$href"

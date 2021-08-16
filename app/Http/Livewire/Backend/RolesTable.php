@@ -17,27 +17,28 @@ class RolesTable extends DataTableComponent
      */
     public function query(): Builder
     {
-        return Role::with('permissions:id,name,description')
+        $data =  Role::with('permissions:id,name,description')
             ->withCount('users')
             ->when($this->getFilter('search'), fn ($query, $term) => $query->search($term));
+            return $data;
     }
 
     public function columns(): array
     {
         return [
-            Column::make(__('Type'))
+            Column::make(__('Loại tài khoản'), 'type')
                 ->sortable(),
-            Column::make(__('Name'))
+            Column::make(__('Tên'), 'name')
                 ->sortable(),
-            Column::make(__('Permissions')),
-            Column::make(__('Number of Users'), 'users_count')
+            Column::make(__('Số người dùng'), 'users_count')
                 ->sortable(),
-            Column::make(__('Actions')),
+            Column::make(__('Hành động')),
         ];
     }
 
     public function rowView(): string
     {
+        
         return 'backend.auth.role.includes.row';
     }
 }
