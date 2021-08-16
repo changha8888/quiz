@@ -106,6 +106,7 @@ Route::group([
                 Route::patch('password/change', [UserPasswordController::class, 'update'])
                     ->name('change-password.update')
                     ->middleware('permission:admin.access.user.change-password');
+                
             });
         });
     });

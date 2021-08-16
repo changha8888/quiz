@@ -71,6 +71,38 @@
                 </ul>
             </li>
         @endif
+        @if (
+            $logged_in_user->hasAllAccess() ||
+            (
+                $logged_in_user->can('admin.access.user.list')
+            )
+        )
+            <li class="c-sidebar-nav-dropdown {{ activeClass(Route::is('admin.auth.user.*') || Route::is('admin.auth.role.*'), 'c-open c-show') }}">
+                <x-utils.link
+                    href="#"
+                    icon="c-sidebar-nav-icon cil-institution"
+                    class="c-sidebar-nav-dropdown-toggle"
+                    :text="__('Chương trình đào tạo')" />
+
+                <ul class="c-sidebar-nav-dropdown-items">
+                    @if (
+                        $logged_in_user->hasAllAccess() ||
+                        (
+                            $logged_in_user->can('admin.access.user.list')
+                        )
+                    )
+                        <li class="c-sidebar-nav-item">
+                            <x-utils.link
+                                :href="route('admin.semester.index')"
+                                class="c-sidebar-nav-link"
+                                :text="__('Quản lý học kỳ')"
+                                :active="activeClass(Route::is('admin.auth.user.*'), 'c-active')" />
+                        </li>
+                    @endif
+
+                </ul>
+            </li>
+        @endif
 
         @if ($logged_in_user->hasAllAccess())
             <li class="c-sidebar-nav-dropdown">
