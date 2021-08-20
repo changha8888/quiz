@@ -12,19 +12,19 @@
             <x-utils.link
                 icon="c-icon cil-plus"
                 class="card-header-action"
-                :href="route('admin.semester.create')"
+                :href="route('admin.program.semester.create')"
                 :text="__('Tạo mới')"
             />
              <x-utils.link
                     icon="bi bi-download"
                     class="btn btn-info btn-sm"
-                    :href="route('admin.semester.download')"
+                    :href="route('admin.program.semester.download')"
                     :text="__('Exel')"
                 />
              <x-utils.link
                     icon="bi bi-download"
                     class="btn btn-info btn-sm"
-                    :href="route('admin.semester.download-pdf')"
+                    :href="route('admin.program.semester.download-pdf')"
                     :text="__('PDF')"
                 />
         </x-slot>

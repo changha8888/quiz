@@ -7,5 +7,5 @@
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    @include('backend.semesters.includes.actions', ['model' => $row])
+    @include('backend.program.semesters.includes.actions', ['model' => $row])
 </x-livewire-tables::bs4.table.cell>
