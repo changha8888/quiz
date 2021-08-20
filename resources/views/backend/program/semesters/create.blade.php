@@ -5,14 +5,14 @@
 @section('title', __('Tạo mới học kỳ'))
 
 @section('content')
-    <x-forms.post :action="route('admin.semester.store')">
+    <x-forms.post :action="route('admin.program.semester.store')">
         <x-backend.card>
             <x-slot name="header">
                 @lang('Tạo mới học kỳ')
             </x-slot>
 
             <x-slot name="headerActions">
-                <x-utils.link class="card-header-action" :href="route('admin.semester.index')" :text="__('Hủy bỏ')" />
+                <x-utils.link class="card-header-action" :href="route('admin.program.semester.index')" :text="__('Hủy bỏ')" />
             </x-slot>
 
             <x-slot name="body">

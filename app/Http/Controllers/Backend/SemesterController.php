@@ -34,7 +34,7 @@ class SemesterController extends AppBaseController
     {
         $semesters = $this->semesterRepository->all();
 
-        return view('backend.semesters.index')
+        return view('backend.program.semesters.index')
             ->with('semesters', $semesters);
     }
 
@@ -45,7 +45,7 @@ class SemesterController extends AppBaseController
      */
     public function create()
     {
-        return view('backend.semesters.create');
+        return view('backend.program.semesters.create');
     }
 
     /**
@@ -62,7 +62,7 @@ class SemesterController extends AppBaseController
         $semester = $this->semesterRepository->create($input);
 
 
-        return redirect(route('admin.semester.index'))->withFlashSuccess(__('Thêm mới học kỳ thành công. '));
+        return redirect(route('admin.program.semester.index'))->withFlashSuccess(__('Thêm mới học kỳ thành công. '));
     }
 
     /**
@@ -99,10 +99,10 @@ class SemesterController extends AppBaseController
         if (empty($semester)) {
             Flash::error('Semester not found');
 
-            return redirect(route('admin.semester.index'));
+            return redirect(route('admin.program.semester.index'));
         }
 
-        return view('backend.semesters.edit')->with('semester', $semester);
+        return view('backend.program.semesters.edit')->with('semester', $semester);
     }
 
     /**
@@ -120,14 +120,14 @@ class SemesterController extends AppBaseController
         if (empty($semester)) {
             Flash::error('Semester not found');
 
-            return redirect(route('admin.semesters.index'));
+            return redirect(route('admin.program.semesters.index'));
         }
 
         $semester = $this->semesterRepository->update($request->all(), $id);
 
         Flash::success('Semester updated successfully.');
 
-        return redirect(route('admin.semester.index'))->withFlashSuccess(__('Sửa học kỳ thành công. '));
+        return redirect(route('admin.program.semester.index'))->withFlashSuccess(__('Sửa học kỳ thành công. '));
     }
 
     /**
@@ -146,13 +146,13 @@ class SemesterController extends AppBaseController
         if (empty($semester)) {
             Flash::error('Semester not found');
 
-            return redirect(route('admin.semester.index'));
+            return redirect(route('admin.program.semester.index'));
         }
 
         $this->semesterRepository->delete($id);
 
 
-        return redirect(route('admin.semester.index'))->withFlashSuccess(__('Xóa học kỳ thành công. '));
+        return redirect(route('admin.program.semester.index'))->withFlashSuccess(__('Xóa học kỳ thành công. '));
     }
 
     public function export() 

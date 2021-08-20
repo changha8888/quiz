@@ -5,9 +5,9 @@ namespace App\Http\Livewire\Backend;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Semester;
+use App\Models\Faculty;
 
-class SemesterTable extends DataTableComponent
+class FacultyTable extends DataTableComponent
 {
 
     public function columns(): array
@@ -15,20 +15,24 @@ class SemesterTable extends DataTableComponent
         return [
             Column::make(__('STT'), 'id')
             ->sortable(),
+            Column::make('Mã khoa', 'code')
+            ->sortable(),
             Column::make('Name')
             ->sortable(),
+            Column::make('Trạng thái', 'status')
+            ->sortable()
         ];
     }
 
     public function query(): Builder
     {
-        return Semester::query()
+        return Faculty::query()
         ->when($this->getFilter('search'), fn ($query, $term) => $query->search($term));
     }
 
     public function rowView(): string
     {
         
-        return 'backend.program.semesters.includes.row';
+        return 'backend.program.faculties.includes.row';
     }
 }

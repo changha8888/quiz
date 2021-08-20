@@ -93,9 +93,43 @@
                     )
                         <li class="c-sidebar-nav-item">
                             <x-utils.link
-                                :href="route('admin.semester.index')"
+                                :href="route('admin.program.semester.index')"
                                 class="c-sidebar-nav-link"
                                 :text="__('Quản lý học kỳ')"
+                                :active="activeClass(Route::is('admin.auth.user.*'), 'c-active')" />
+                        </li>
+                    @endif
+
+                </ul>
+                <ul class="c-sidebar-nav-dropdown-items">
+                    @if (
+                        $logged_in_user->hasAllAccess() ||
+                        (
+                            $logged_in_user->can('admin.access.user.list')
+                        )
+                    )
+                        <li class="c-sidebar-nav-item">
+                            <x-utils.link
+                                :href="route('admin.program.week.index')"
+                                class="c-sidebar-nav-link"
+                                :text="__('Quản lý tuần học')"
+                                :active="activeClass(Route::is('admin.auth.user.*'), 'c-active')" />
+                        </li>
+                    @endif
+
+                </ul>
+                <ul class="c-sidebar-nav-dropdown-items">
+                    @if (
+                        $logged_in_user->hasAllAccess() ||
+                        (
+                            $logged_in_user->can('admin.access.user.list')
+                        )
+                    )
+                        <li class="c-sidebar-nav-item">
+                            <x-utils.link
+                                :href="route('admin.program.faculty.index')"
+                                class="c-sidebar-nav-link"
+                                :text="__('Quản lý khoa đào tạo')"
                                 :active="activeClass(Route::is('admin.auth.user.*'), 'c-active')" />
                         </li>
                     @endif
